@@ -750,11 +750,11 @@ img {
     flex-direction: column;
 }
 
-.modal-field,
-.modal-field-comment {
+.modal-field
+ {
     margin-bottom: 8px;
 }
-
+.modal-field-comment {margin-bottom: 16px;}
 
 .modal-label {
     display: block;
@@ -884,6 +884,7 @@ img {
     height: 8px;
     fill: transparent;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
 }
 
 
