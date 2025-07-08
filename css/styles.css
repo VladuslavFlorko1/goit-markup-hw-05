@@ -856,7 +856,6 @@ img {
     line-height: 1.17;
     letter-spacing: 0.04em;
     color: var(--color-text-muted, #8e8f99);
-    display: flex;
     align-items: center;
     user-select: none;
 }
@@ -884,7 +883,6 @@ img {
     height: 8px;
     fill: transparent;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    display: inline-flex;
 }
 
 
@@ -900,7 +898,7 @@ img {
     fill: #F4F4FD;
 }
 
-/* Посилання в чекбоксі */
+
 .modal-privacy-link {
     color: #4d5ae5;
     text-decoration: none;
@@ -912,7 +910,7 @@ img {
     text-decoration: underline;
 }
 
-/* Кнопка відправки */
+
 .modal-submit-btn {
     display: block;
     min-width: 169px;
