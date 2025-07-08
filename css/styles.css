@@ -523,6 +523,7 @@ img {
 
 .white-logo {
     color: #f4f4fd;
+    
 }
 
 .footer-text {
@@ -656,7 +657,7 @@ img {
 }
 /*------------footer-----------end*/
 /*------------form-field-------start*/
-/* Контейнер модалки (бекдроп) */
+
 .backdrop {
     position: fixed;
     top: 0;
@@ -668,13 +669,14 @@ img {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-open {
     display: flex;
 }
 
-/* Модальне вікно */
+
 .modal-window {
     position: absolute;
     top: 50%;
@@ -693,7 +695,7 @@ img {
     font-family: "Roboto", sans-serif;
 }
 
-/* Кнопка закриття */
+
 .modal-close-btn {
     position: absolute;
     top: 24px;
@@ -720,11 +722,10 @@ img {
     outline: none;
 }
 
-/* Іконка всередині кнопки закриття */
 .modal-close-icon {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
     fill: #000;
-    /* Початковий колір */
+    
 }
 
 .modal-close-btn:hover .modal-close-icon,
@@ -732,7 +733,7 @@ img {
     fill: #ffffff;
 }
 
-/* Заголовок модального вікна */
+
 .modal-title {
     font-weight: 500;
     font-size: 16px;
@@ -740,22 +741,21 @@ img {
     text-align: center;
     letter-spacing: 0.02em;
     color: var(--color-text-dark, #2E2F42);
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
-/* Форма */
+
 .modal-form {
     display: flex;
     flex-direction: column;
 }
 
-/* Загальні стилі для полів форми */
 .modal-field,
 .modal-field-comment {
     margin-bottom: 16px;
 }
 
-/* Лейбл */
+
 .modal-label {
     display: block;
     font-size: 12px;
@@ -766,12 +766,13 @@ img {
     user-select: none;
 }
 
-/* Контейнер input + icon */
+
 .modal-input-wrapper {
     position: relative;
+    margin-bottom: 8px;
 }
 
-/* Поля input */
+
 .modal-input {
     width: 100%;
     height: 40px;
@@ -790,7 +791,7 @@ img {
     border-color: #4D5AE5;
 }
 
-/* Іконка в input */
+
 .modal-icon {
     position: absolute;
     left: 16px;
@@ -807,7 +808,7 @@ img {
     fill: #4D5AE5;
 }
 
-/* Текстове поле textarea */
+
 .modal-textarea {
     width: 100%;
     height: 120px;
@@ -829,7 +830,7 @@ img {
     border-color: #4D5AE5;
 }
 
-/* Контейнер для чекбокса */
+
 .modal-checkbox-wrapper {
     margin-bottom: 24px;
     display: flex;
@@ -837,7 +838,7 @@ img {
     gap: 8px;
 }
 
-/* Прихований дефолтний чекбокс */
+
 .visually-hidden {
     position: absolute !important;
     width: 1px;
@@ -850,7 +851,7 @@ img {
     border: 0;
 }
 
-/* Лейбл чекбокса */
+
 .modal-checkbox-label {
     font-size: 12px;
     line-height: 1.17;
@@ -861,7 +862,7 @@ img {
     user-select: none;
 }
 
-/* Іконка в чекбоксі */
+
 .modal-checkbox-icon {
     width: 16px;
     height: 16px;
@@ -878,7 +879,7 @@ img {
     margin-right: 8px;
 }
 
-/* Іконка svg в чекбоксі */
+
 .checkbox-icon {
     width: 10px;
     height: 8px;
@@ -886,12 +887,14 @@ img {
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Стан checked чекбокса */
+
 .modal-checkbox:checked+.modal-checkbox-label .modal-checkbox-icon {
     background-color: #404bbf;
     border: none;
-    fill: transparent;
+    fill: var(--color-checkbox-checked);
 }
+:root {
+    --color-checkbox-checked: #F4F4FD; }
 
 .modal-checkbox:checked+.modal-checkbox-label .checkbox-icon {
     fill: #F4F4FD;
