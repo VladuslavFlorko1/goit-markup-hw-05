@@ -657,204 +657,238 @@ img {
 /*------------footer-----------end*/
 /*------------form-field-------start*/
 /*----------------- Form Overlay -----------------*/
-.form {
+:root {
+    --color-dark: #2e2f42;
+    --color-accent: #4d5ae5;
+    --color-accent-hover: #404bbf;
+    --color-light: #f4f4fd;
+    --color-grey: #8e8f99;
+    --color-white: #ffffff;
+    --color-backdrop: rgba(46, 47, 66, 0.4);
+}
+
+/* --- BACKDROP --- */
+.backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(46, 47, 66, 0.4);
+    background-color: var(--color-backdrop);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
 }
 
-/*----------------- Form Container -----------------*/
-.form-field {
+.backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* --- MODAL --- */
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 408px;
-    padding: 24px;
+    min-height: 584px;
     background: #fcfcfc;
     border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.14),
-        0 1px 3px rgba(0, 0, 0, 0.12),
-        0 2px 1px rgba(0, 0, 0, 0.2);
+    padding: 72px 24px 24px;
+    box-shadow:
+        0px 1px 1px rgba(0, 0, 0, 0.14),
+        0px 1px 3px rgba(0, 0, 0, 0.12),
+        0px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/*----------------- Header & Title -----------------*/
-.form-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 24px;
-}
-
-.exid-box {
+/* --- CLOSE BUTTON --- */
+.modal-close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
     width: 24px;
     height: 24px;
     border-radius: 50%;
     background-color: #e7e9fc;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    fill: #2e2f42;
-    transition: 250ms ease-in-out;
-}
-
-.exid-box:hover,
-.exid-box:focus {
-    background-color: #4d5ae5;
-    fill: #fff;
-}
-
-.form-text {
-    font: 500 16px/1.5 "Roboto", sans-serif;
-    text-align: center;
-    color: #2e2f42;
-    margin-bottom: 18px;
-}
-/*----------------- Labels & Fields -----------------*/
-.form-label {
-    font: 400 12px/1.17 "Roboto", sans-serif;
-    color: #8e8f99;
-}
-
-.box-label {
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.modal-close-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    background-color: var(--color-accent-hover);
+    border: none;
+}
+
+.modal-close-btn:hover .modal-close-icon,
+.modal-close-btn:focus .modal-close-icon {
+    fill: #ffffff;
+}
+
+/* --- TITLE --- */
+.modal-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--color-dark);
+    margin-bottom: 16px;
+}
+
+/* --- FORM FIELD --- */
+.form-field {
+    margin-bottom: 8px;
+}
+
+.form-label {
+    display: block;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--color-grey);
+    margin-bottom: 4px;
+}
+
+/* --- INPUT WRAPPER --- */
 .input-wrapper {
     position: relative;
-    display: flex;
-    align-items: center;
-    width: 360px;
 }
 
 .form-input {
     width: 100%;
     height: 40px;
-    padding-left: 36px;
+    padding-left: 38px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
-    font-family: "Roboto", sans-serif;
-    font-size: 14px;
-    transition: border-color 250ms ease;
+    background-color: transparent;
+    outline: transparent;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.form-input:hover,
 .form-input:focus {
-    border-color: #4d5ae5;
-    outline: none;
+    border-color: var(--color-accent);
 }
 
 .input-icon {
     position: absolute;
-    left: 12px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    fill: #8e8f99;
-    pointer-events: none;
-    transition: fill 250ms ease;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: currentColor;
 }
 
-.input-wrapper:hover .input-icon,
-.input-wrapper:has(.form-input:focus) .input-icon {
-    fill: #4d5ae5;
+.form-input:focus+.input-icon {
+    fill: var(--color-accent);
 }
 
-/*----------------- Textarea -----------------*/
-.coment {
-    width: 360px;
-}
-
-.textarea-form {
+/* --- TEXTAREA --- */
+.form-textarea {
     width: 100%;
     height: 120px;
-    padding: 8px 12px;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: rgba(46, 47, 66, 0.4);
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 4px;
+    background-color: transparent;
+    padding: 8px 16px;
+    outline: transparent;
     resize: none;
-    font-family: "Roboto", sans-serif;
-    transition: border-color 250ms ease;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.textarea-form:hover,
-.textarea-form:focus {
-    border-color: #4d5ae5;
-    outline: none;
+.form-textarea:focus {
+    border-color: var(--color-accent);
 }
 
-/*----------------- Checkbox -----------------*/
-.privacy-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 16px;
+/* --- CHECKBOX --- */
+.form-checkbox {
     margin-bottom: 24px;
 }
 
-.form-privesi {
-    appearance: none;
+.checkbox-label {
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.04em;
+    color: var(--color-grey);
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-input {
+    display: none;
+}
+
+.checkbox-custom {
     width: 16px;
     height: 16px;
     border: 1px solid rgba(46, 47, 66, 0.4);
     border-radius: 2px;
-    background-color: #fff;
-    cursor: pointer;
-    position: relative;
-    transition: all 250ms ease;
-}
-
-.form-privesi:hover {
-    border-color: #4d5ae5;
-}
-
-.form-privesi:checked {
-    background-color: #4d5ae5;
-    border-color: #4d5ae5;
-}
-
-.form-privesi:checked::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 4px;
-    width: 5px;
-    height: 9px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-.privacy {
-    font: 400 12px/1.33 "Roboto", sans-serif;
-    color: #8e8f99;
-}
-
-.spam-privacy {
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    color: #4d5ae5;
-}
-
-/*----------------- Submit Button -----------------*/
-.section-button {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
+    fill: transparent;
+    margin-right: 8px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.submit {
-    width: 169px;
-    height: 56px;
-    padding: 16px 32px;
-    background-color: #4d5ae5;
+.checkbox-icon {
+    pointer-events: none;
+}
+
+.checkbox-input:checked+.checkbox-label .checkbox-custom {
+    background-color: var(--color-accent-hover);
     border: none;
+    fill: var(--color-light);
+}
+
+.checkbox-link {
+    color: var(--color-accent);
+    text-decoration: underline;
+    margin-left: 3px;
+}
+
+/* --- SUBMIT BUTTON --- */
+.form-submit {
+    display: block;
+    min-width: 169px;
+    height: 56px;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: var(--color-white);
+    background-color: var(--color-accent);
+    border: none;
+    cursor: pointer;
     border-radius: 4px;
-    font: 500 16px/1.5 "Roboto", sans-serif;
-    color: #fff;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.submit:hover,
-.submit:focus {
-    background-color: #404BBF;
+.form-submit:hover,
+.form-submit:focus {
+    background-color: var(--color-accent-hover);
 }
