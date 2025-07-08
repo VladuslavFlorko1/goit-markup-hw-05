@@ -546,6 +546,8 @@ img {
     letter-spacing: 0.02em;
     color: #fff;
     margin-bottom: 16px;
+    display: flex;
+    /* для футера підписки, щоб input був всередині label */
 }
 
 .social-list {
@@ -578,6 +580,7 @@ img {
     height: 24px;
 }
 
+/* Підписка */
 .footer-subscribe {
     display: flex;
     flex-direction: column;
@@ -621,7 +624,7 @@ img {
     opacity: 1;
 }
 
-.footer-button-text {
+.footer-button {
     min-width: 165px;
     height: 40px;
     background-color: #4d5ae5;
@@ -641,16 +644,17 @@ img {
     transition: background-color 250ms ease;
 }
 
-.footer-button-text:hover,
-.footer-button-text:focus {
+.footer-button:hover,
+.footer-button:focus {
     background-color: #404bbf;
 }
 
-.svg-frame {
-    fill: #fff;
+.button-icon {
     margin-left: 16px;
+    width: 24px;
+    height: 24px;
+    fill: #fff;
 }
-
 /*------------footer-----------end*/
 /*------------form-field-------start*/
 /*----------------- Form Overlay -----------------*/
