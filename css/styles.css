@@ -601,6 +601,7 @@ img {
     color: #fff;
     font-family: "Roboto", sans-serif;
     font-size: 12px;
+    background-color: transparent;
 }
 
 .footer-input::placeholder {
@@ -627,6 +628,10 @@ img {
     cursor: pointer;
     font-family: "Roboto", sans-serif;
     transition: background-color 250ms ease;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
 }
 
 .footer-button-text:hover {
