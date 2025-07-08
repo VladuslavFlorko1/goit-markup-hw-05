@@ -580,7 +580,7 @@ img {
     height: 24px;
 }
 
-/* Підписка */
+
 .footer-subscribe {
     display: flex;
     flex-direction: column;
@@ -589,7 +589,7 @@ img {
 }
 
 .subscribe-text {
-    margin: 0;
+    margin-bottom: 16px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.5;
