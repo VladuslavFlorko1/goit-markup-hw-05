@@ -600,7 +600,6 @@ img {
 .footer-form {
     display: flex;
     gap: 24px;
-    align-items: center;
 }
 
 .footer-input {
@@ -710,7 +709,6 @@ img {
     color: #2e2f42;
     margin-bottom: 18px;
 }
-
 /*----------------- Labels & Fields -----------------*/
 .form-label {
     font: 400 12px/1.17 "Roboto", sans-serif;
